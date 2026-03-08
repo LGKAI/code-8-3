@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quà Tặng 8/3 Yêu Thương</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chúc Mừng Ngày Quốc Tế Phụ Nữ 8/3</h1>
+        <p class="subtitle">Gửi ngàn lời yêu thương đến Mẹ và các Chị</p>
+
+        <div class="gift-container">
+            <div class="person-gift" onclick="showWish('hien')">
+                <img src="hien.jpg" alt="Chị Hiền" class="avatar">
+                <div class="gift-box">
+                    <div class="box">🎁</div>
+                    <p>Chị Hiền hãy bấm vào đây!</p>
+                </div>
+            </div>
+
+            <div class="person-gift" onclick="showWish('me')">
+                <img src="me.jpg" alt="Mẹ" class="avatar">
+                <div class="gift-box featured">
+                    <div class="box">💝</div>
+                    <p>Mẹ hãy bấm vào đây!</p>
+                </div>
+            </div>
+
+            <div class="person-gift" onclick="showWish('tien')">
+                <img src="tien.jpg" alt="Chị Tiên" class="avatar">
+                <div class="gift-box">
+                    <div class="box">🎁</div>
+                    <p>Chị Tiên hãy bấm vào đây!</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="wish-display" class="wish-card hidden">
+            <h2 id="wish-title"></h2>
+            <p id="wish-content"></p>
+            <button onclick="closeWish()">Đóng lại</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
