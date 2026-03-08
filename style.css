@@ -1,43 +1,32 @@
-/* Thiết lập chung */
 body {
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #fff5f7 0%, #fce4ec 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-x: hidden; /* Ngăn cuộn ngang do hiệu ứng */
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
-    max-width: 900px;
+    width: 100%;
 }
 
-h1 {
-    color: #d81b60;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
+h1 { color: #d81b60; margin-bottom: 5px; font-size: 1.8rem; }
+.subtitle { color: #ad1457; margin-bottom: 30px; font-size: 0.9rem; }
 
-.subtitle {
-    color: #ad1457;
-    margin-bottom: 50px;
-    font-style: italic;
-}
-
-/* Container chứa ảnh và hộp quà */
 .gift-container {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
     flex-wrap: wrap;
-    align-items: flex-end; /* Đặt ảnh và hộp quà ngang hàng ở phía dưới */
 }
 
-/* Style cho ảnh đại diện */
 .person-gift {
+    width: 150px; /* Cố định chiều rộng tuyệt đối */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,102 +35,78 @@ h1 {
 }
 
 .avatar {
-    width: 100px;
+    width: 100px; /* Cố định chiều rộng ảnh */
     height: 100px;
-    border-radius: 50%; /* Làm ảnh tròn */
-    object-fit: cover; /* Giữ tỷ lệ ảnh */
-    border: 4px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: -15px; /* Để ảnh đè lên hộp quà một chút */
-    z-index: 2; /* Để ảnh nằm trên hộp quà */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 2;
+    margin-bottom: -15px;
 }
 
-/* Hiệu ứng hộp quà */
 .gift-box {
     background: white;
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease;
-    width: 180px;
-    z-index: 1; /* Để hộp quà nằm dưới ảnh */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    width: 100%; /* Sẽ bằng 150px của cha */
+    z-index: 1;
+    border: 1px solid #fce4ec;
 }
 
-.featured .gift-box {
-    border: 2px solid #f06292;
-    transform: scale(1.05); /* Phóng to nhẹ thay vì scale toàn bộ element */
+.box { font-size: 40px; }
+.gift-box p { 
+    font-size: 0.85rem; 
+    color: #d81b60; 
+    margin: 5px 0 0 0; 
+    font-weight: bold;
+    white-space: nowrap; /* Không cho phép xuống dòng làm lệch ô */
 }
 
-.box {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
+.person-gift:hover { transform: translateY(-10px); }
 
-/* Hiệu ứng khi hover vào hộp quà */
-.person-gift:hover {
-    transform: translateY(-10px); /* Cả khối bay lên */
-}
-
-.person-gift:hover .gift-box {
-    box-shadow: 0 15px 30px rgba(216, 27, 96, 0.2);
-}
-
-/* Lời chúc (Popup) */
+/* Popup */
 .wish-card {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.wish-content-wrapper {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    z-index: 100;
     width: 80%;
-    max-width: 500px;
+    max-width: 350px;
+    text-align: center;
 }
 
-.hidden {
-    display: none;
-}
+.hidden { display: none !important; }
 
-/* Nút đóng lời chúc */
 button {
-    background: #f06292;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background 0.3s ease;
+    background: #f06292; color: white; border: none;
+    padding: 8px 25px; border-radius: 20px; cursor: pointer;
+    margin-top: 15px; font-weight: bold;
 }
 
-button:hover {
-    background: #ec407a;
-}
-
-/* Hiệu ứng lấp lánh (Sparkles) - TỐI ƯU HÓA */
+/* Hiệu ứng lấp lánh nhẹ */
 .sparkle {
     position: absolute;
-    border-radius: 50%;
     pointer-events: none;
-    /* Sử dụng transform: translate để mượt hơn thay vì top/left */
-    will-change: transform, opacity; 
-    animation: flyUp 4s linear forwards; /* Tăng thời gian và sử dụng forwards để giữ trạng thái cuối */
-    z-index: -1; /* Hiệu ứng bay phía sau nội dung chính */
+    border-radius: 50%;
+    will-change: transform;
+    animation: flyUp 5s linear forwards;
+    z-index: -1;
 }
 
 @keyframes flyUp {
-    0% {
-        transform: translateY(10vh) scale(0);
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(-110vh) scale(1.5);
-        opacity: 0;
-    }
+    0% { transform: translateY(0) scale(0); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
 }

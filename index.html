@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quà Tặng 8/3 Yêu Thương</title>
+    <title>Quà Tặng 8/3 Gia Đình</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Chúc Mừng Ngày Quốc Tế Phụ Nữ 8/3</h1>
-        <p class="subtitle">Gửi ngàn lời yêu thương đến Mẹ và các Chị</p>
+        <h1>Chúc Mừng Ngày 8/3</h1>
+        <p class="subtitle">Gửi ngàn lời yêu thương đến những người phụ nữ tuyệt vời</p>
 
         <div class="gift-container">
+            <div class="person-gift" onclick="showWish('me')">
+                <img src="me.jpg" alt="Mẹ" class="avatar">
+                <div class="gift-box">
+                    <div class="box">💝</div>
+                    <p>Mẹ</p>
+                </div>
+            </div>
+
             <div class="person-gift" onclick="showWish('hien')">
                 <img src="hien.jpg" alt="Chị Hiền" class="avatar">
                 <div class="gift-box">
                     <div class="box">🎁</div>
-                    <p>Chị Hiền hãy bấm vào đây!</p>
-                </div>
-            </div>
-
-            <div class="person-gift" onclick="showWish('me')">
-                <img src="me.jpg" alt="Mẹ" class="avatar">
-                <div class="gift-box featured">
-                    <div class="box">💝</div>
-                    <p>Mẹ hãy bấm vào đây!</p>
+                    <p>Chị Hiền</p>
                 </div>
             </div>
 
@@ -32,18 +32,35 @@
                 <img src="tien.jpg" alt="Chị Tiên" class="avatar">
                 <div class="gift-box">
                     <div class="box">🎁</div>
-                    <p>Chị Tiên hãy bấm vào đây!</p>
+                    <p>Chị Tiên</p>
+                </div>
+            </div>
+
+            <div class="person-gift" onclick="showWish('nang')">
+                <img src="nang.jpg" alt="Nắng" class="avatar">
+                <div class="gift-box">
+                    <div class="box">🎁</div>
+                    <p>Nắng</p>
+                </div>
+            </div>
+
+            <div class="person-gift" onclick="showWish('may')">
+                <img src="may.jpg" alt="Mây" class="avatar">
+                <div class="gift-box">
+                    <div class="box">🎁</div>
+                    <p>Mây</p>
                 </div>
             </div>
         </div>
 
         <div id="wish-display" class="wish-card hidden">
-            <h2 id="wish-title"></h2>
-            <p id="wish-content"></p>
-            <button onclick="closeWish()">Đóng lại</button>
+            <div class="wish-content-wrapper">
+                <h2 id="wish-title"></h2>
+                <p id="wish-content"></p>
+                <button onclick="closeWish()">Đóng lại</button>
+            </div>
         </div>
     </div>
-
     <script src="main.js"></script>
 </body>
 </html>
