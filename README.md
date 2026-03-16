@@ -1,3 +1,3 @@
-# Code 8/3
+# Quà 8/3 cho gia đình
 
-Click vô đây để coi: https://lgkai.github.io/code-8-3/
+Bấm vô đây để coi: https://lgkai.github.io/project2_8-3-for-family/
